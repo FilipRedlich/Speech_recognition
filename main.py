@@ -1,4 +1,5 @@
 import speech_recognition as sr
+import webbrowser
 
 # Initialize recognizer
 r = sr.Recognizer()
@@ -9,18 +10,21 @@ with sr.Microphone() as source:
     r.adjust_for_ambient_noise(source)
     
     while True:
-        # Listen for speech input
-        print("Say something...")
         try:
-            audio = r.listen(source, timeout=1)
+            # Listen for speech input
+            print("Say something...")
+            audio = r.listen(source, timeout=3)
+
+            print("Recognizing...")
+            # Recognize speech from audio data
+            text = r.recognize_google(audio)
             break
         except sr.WaitTimeoutError:
-            print("Timed out waiting for speech input. Please try again.")
             continue
-
-print("Recognizing")
-# Recognize speech from audio data
-text = r.recognize_google(audio)
 
 # Print recognized text
 print(text)
+
+if text.startswith("find me"):
+    url = 'https://www.google.com/search?q=' + text[8:]
+    webbrowser.open(url)
