@@ -17,9 +17,11 @@ with sr.Microphone() as source:
 
             print("Recognizing...")
             # Recognize speech from audio data
-            text = r.recognize_google(audio)
+            # text = r.recognize_google(audio)
+            text = r.recognize_sphinx(audio)
             break
-        except sr.WaitTimeoutError:
+        except (sr.WaitTimeoutError, sr.UnknownValueError, sr.RequestError) as e:
+            print("Error: ", e)
             continue
 
 # Print recognized text
