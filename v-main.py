@@ -1,5 +1,3 @@
-# model = vk.Model("D:/Projects/GitHub/Speech_recognition/vosk-model-small-pl-0.22")
-
 import vosk
 import json
 import pyaudio
@@ -17,6 +15,7 @@ def recognize_speech(model, audio_stream):
             text = json_result['text']
             return text
 
+# Models url = https://alphacephei.com/vosk/models
 model = vosk.Model("D:/Projects/GitHub/Speech_recognition/vosk-model-small-pl-0.22")
 audio = pyaudio.PyAudio()
 stream = audio.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=8000)
