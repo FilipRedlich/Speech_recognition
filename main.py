@@ -1,3 +1,4 @@
+# pip install pocketsphinx
 import speech_recognition as sr
 import webbrowser
 
