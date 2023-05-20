@@ -1,9 +1,16 @@
 import vosk
 import json
 import pyaudio
+import pyttsx3
 
 # Hide logs from vosk module
 vosk.SetLogLevel(-1)
+
+# Initialize pyttsx3
+engine = pyttsx3.init()
+
+# Set the desired language
+engine.setProperty('voice', 'pl')
 
 def recognize_speech(model, audio_stream):
     rec = vosk.KaldiRecognizer(model, 16000)
@@ -19,9 +26,11 @@ def recognize_speech(model, audio_stream):
 model = vosk.Model("D:/Projects/GitHub/Speech_recognition/vosk-model-small-pl-0.22")
 audio = pyaudio.PyAudio()
 stream = audio.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=8000)
-print("Say something...")
+print("Powiedz coś...")
 text = recognize_speech(model, stream)
 print(text)
+engine.say(text)  # Speak out the final transcription
+engine.runAndWait()
 
 stream.stop_stream()
 stream.close()
