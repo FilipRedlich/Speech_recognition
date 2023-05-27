@@ -2,6 +2,7 @@ import vosk
 import json
 import pyaudio
 import pyttsx3
+import webbrowser
 
 # Hide logs from vosk module
 vosk.SetLogLevel(-1)
@@ -31,6 +32,10 @@ text = recognize_speech(model, stream)
 print(text)
 engine.say(text)  # Speak out the final transcription
 engine.runAndWait()
+
+if text.startswith("znajdź"):
+    url = 'https://www.google.com/search?q=' + text[8:]
+    webbrowser.open(url)
 
 stream.stop_stream()
 stream.close()
