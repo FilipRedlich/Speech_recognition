@@ -25,7 +25,7 @@ def recognize_speech(model, audio_stream):
 
 # Models url = https://alphacephei.com/vosk/models
 # Load the Vosk model
-model = vosk.Model("D:/Projects/GitHub/Speech_recognition/vosk-model-small-pl-0.22")
+model = vosk.Model("vosk-model-small-pl-0.22")
 
 # Initialize PyAudio
 audio = pyaudio.PyAudio()
