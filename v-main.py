@@ -54,11 +54,17 @@ if text.startswith("zapisz"):
     if len(words) > 1:
         file_name = words[1] + ".txt"
         content = " ".join(words[2:])
-        with open(file_name, "w") as file:
-            file.write(content)
-        print(f"Saved recognized speech to file: {file_name}")
+        with open(file_name, "a") as file:
+            file.write(content+"\n")
+        text = f"Saved recognized speech to file: {file_name}"
+        print(text)
+        engine.say(text)
+        engine.runAndWait()
     else:
-        print("Invalid command. Please provide a file name after keyword: 'zapisz'.")
+        text = "Invalid command. Please provide a file name after keyword: 'zapisz'."
+        print(text)
+        engine.say(text)
+        engine.runAndWait()
 
 # Read text from a file if it starts with "odczytaj"
 if text.startswith("odczytaj"):
@@ -72,9 +78,15 @@ if text.startswith("odczytaj"):
             engine.say(content)
             engine.runAndWait()
         except FileNotFoundError:
-            print(f"File not found: {file_name}")
+            text = f"File not found: {file_name}"
+            print(text)
+            engine.say(text)
+            engine.runAndWait()
     else:
-        print("Invalid command. Please provide a file name after keyword: 'odczytaj'.")
+        text = "Invalid command. Please provide a file name after keyword: 'odczytaj'."
+        print(text)
+        engine.say(text)
+        engine.runAndWait()
 
 # Clean up
 stream.stop_stream()
