@@ -48,6 +48,19 @@ if text.startswith("znajdź"):
     url = 'https://www.google.com/search?q=' + text[6:]
     webbrowser.open(url)
 
+# Save recognized text to a file if it starts with "zapisz"
+if text.startswith("zapisz"):
+    words = text.split()
+    if len(words) > 1:
+        file_name = words[1] + ".txt"
+        content = " ".join(words[2:])
+        with open(file_name, "w") as file:
+            file.write(content)
+        print(f"Saved recognized speech to file: {file_name}")
+    else:
+        print("Invalid command. Please provide a file name after 'zapisz'.")
+
+
 # Clean up
 stream.stop_stream()
 stream.close()
