@@ -24,19 +24,31 @@ def recognize_speech(model, audio_stream):
             return text
 
 # Models url = https://alphacephei.com/vosk/models
+# Load the Vosk model
 model = vosk.Model("D:/Projects/GitHub/Speech_recognition/vosk-model-small-pl-0.22")
+
+# Initialize PyAudio
 audio = pyaudio.PyAudio()
+
+# Open the microphone stream
 stream = audio.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=8000)
 print("Powiedz coś...")
+
+# Recognize text from speech using model
 text = recognize_speech(model, stream)
+
+# Print the recognized text
 print(text)
-engine.say(text)  # Speak out the final transcription
+# Speak out the recognized text
+engine.say(text)
 engine.runAndWait()
 
+# Use recognized text as prompt in google search engine
 if text.startswith("znajdź"):
-    url = 'https://www.google.com/search?q=' + text[8:]
+    url = 'https://www.google.com/search?q=' + text[6:]
     webbrowser.open(url)
 
+# Clean up
 stream.stop_stream()
 stream.close()
 audio.terminate()
