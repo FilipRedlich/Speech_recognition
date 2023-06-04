@@ -45,7 +45,7 @@ engine.say(text)
 engine.runAndWait()
 
 # URL of the web server endpoint
-url = "http://localhost:80/serf/"
+url = "http://localhost:80/server/"
 
 # Send the recognized text to the web server
 response = requests.post(url, data={'recognized_text': text})
