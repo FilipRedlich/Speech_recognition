@@ -3,6 +3,7 @@ import json
 import pyaudio
 import pyttsx3
 import webbrowser
+import requests
 
 # Hide logs from vosk module
 vosk.SetLogLevel(-1)
@@ -42,6 +43,18 @@ print(text)
 # Speak out the recognized text
 engine.say(text)
 engine.runAndWait()
+
+# URL of the web server endpoint
+url = "http://localhost:80/serf/"
+
+# Send the recognized text to the web server
+response = requests.post(url, data={'recognized_text': text})
+
+# Check the response status code
+if response.status_code == 200:
+    print("Text successfully sent to the web server.")
+else:
+    print(f"Error occurred while sending text to the web server. {response.status_code}")
 
 # Use recognized text as prompt in google search engine
 if text.startswith("znajdź"):
