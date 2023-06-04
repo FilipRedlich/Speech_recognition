@@ -1,0 +1,18 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+body {
+	background-color: lightgray;
+}
+nav {
+	height: 15vh;
+	background: darkblue;
+	color: white;
+	text-decoration: none;
+	font-size: 32px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
