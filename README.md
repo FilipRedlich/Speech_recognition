@@ -33,8 +33,8 @@ Features:
 
 Additional Functions:
 --------------
-Sending Recognized Text to a Web Server: The program can send the recognized text to a web server hosted on localhost using the HTTP protocol.
-Displaying Recognized Text in a Three-Column Table: The program provides a simple web interface that displays the received recognized text in a three-column table layout.
+- Sending Recognized Text to a Web Server: The program can send the recognized text to a web server hosted on localhost using the HTTP protocol.
+- Displaying Recognized Text in a Three-Column Table: The program provides a simple web interface that displays the received recognized text in a three-column table layout.
 
 Important Notes:
 --------------
