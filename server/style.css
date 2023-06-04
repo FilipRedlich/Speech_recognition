@@ -16,3 +16,21 @@ nav {
 	justify-content: space-around;
 	align-items: center;
 }
+
+tr	{
+	text-align: center;
+}
+
+.main-table {
+    display: block; 
+    max-height: 80vh; 
+	max-width: 90vw;
+    overflow: auto;
+	margin-left: 5vw;
+	margin-top: 5vh;
+	font-size: 18px;
+}
+
+.table-data {
+    background-color: #d3d6f8;
+}
