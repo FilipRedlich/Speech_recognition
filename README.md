@@ -12,6 +12,7 @@ Dependencies:
 - pyaudio: PyAudio is a Python library that provides bindings for the PortAudio audio I/O library. It is used for recording audio from the microphone and playing back audio.
 - pyttsx3: pyttsx3 is a Python library that provides a cross-platform text-to-speech interface. It is used for converting recognized text to spoken words.
 - webbrowser: webbrowser is a built-in Python module that provides a high-level interface to open web browsers. It is used to perform web searches based on recognized speech.
+- requests: requests is a Python library that provides ability to send HTTP requests. It is used for sending data from python to the web server.
 
 Usage:
 --------------
@@ -29,6 +30,11 @@ Features:
 5. Speech-to-File Saving: Save recognized speech to a file if it starts with the "zapisz" keyword.
 6. File Reading: Read text from a file if it starts with the "odczytaj" keyword.
 7. Multilingual Support: Set the desired language for speech recognition and text-to-speech conversion.
+
+Additional Functions:
+--------------
+Sending Recognized Text to a Web Server: The program can send the recognized text to a web server hosted on localhost using the HTTP protocol.
+Displaying Recognized Text in a Three-Column Table: The program provides a simple web interface that displays the received recognized text in a three-column table layout.
 
 Important Notes:
 --------------
